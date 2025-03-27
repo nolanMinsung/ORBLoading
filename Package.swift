@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "ORBLoading",
+    platforms: [.iOS(.v13)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
@@ -12,13 +13,18 @@ let package = Package(
             targets: ["ORBLoading"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/airbnb/lottie-ios.git", from: .init(4, 5, 1))
+        .package(url: "https://github.com/airbnb/lottie-ios.git", from: .init(4, 5, 1)),
+        .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.7.1")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "ORBLoading"),
+            name: "ORBLoading",
+            dependencies: [
+                .product(name: "Lottie", package: "lottie-ios"),
+                .product(name: "SnapKit", package: "SnapKit")
+            ]),
         .testTarget(
             name: "ORBLoadingTests",
             dependencies: ["ORBLoading"]
