@@ -7,14 +7,14 @@ import UIKit
 import Lottie
 import SnapKit
 
-protocol ORBCenterLoadingStyle: UIView {
+public protocol ORBCenterLoadingStyle: UIView {
     
     func startLoading(withoutShading: Bool)
     func stopLoading()
     
 }
 
-extension ORBCenterLoadingStyle {
+public extension ORBCenterLoadingStyle {
     
     func startLoading(withoutShading: Bool) {
         let loadingView = ORBLoadingView()
@@ -37,7 +37,7 @@ extension ORBCenterLoadingStyle {
     
 }
 
-final class ORBLoadingView: UIView {
+fileprivate final class ORBLoadingView: UIView {
     
     let lottie = Lottie.LottieAnimationView(name: "loading2")
     

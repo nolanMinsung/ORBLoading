@@ -12,7 +12,7 @@ import SnapKit
 
 
 /// 무한스크롤 시 scroll view 컨텐츠 아래에 로딩 화면을 띄우고자 할 경우, 해당 scroll view에서 이 프로토콜을 채택
-protocol ORBScrollLoadingStyle: UIScrollView {
+public protocol ORBScrollLoadingStyle: UIScrollView {
     
     var scrollLoadingLottieOffset: CGFloat { get }
     var scrollLoadingLottieSideLength: CGFloat { get }
@@ -23,7 +23,7 @@ protocol ORBScrollLoadingStyle: UIScrollView {
     
 }
 
-extension ORBScrollLoadingStyle {
+public extension ORBScrollLoadingStyle {
     
     var scrollLoadingLottieOffset: CGFloat { 18 }
     var scrollLoadingLottieSideLength: CGFloat { 38 }
@@ -59,7 +59,7 @@ extension ORBScrollLoadingStyle {
     
 }
 
-final class ORBScrollLoadingView: UIView {
+fileprivate final class ORBScrollLoadingView: UIView {
     
     let lottie = Lottie.LottieAnimationView(name: "loading1")
     
