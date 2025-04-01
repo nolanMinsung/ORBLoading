@@ -13,8 +13,8 @@ let package = Package(
             targets: ["ORBLoading"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/airbnb/lottie-ios.git", from: .init(4, 5, 1)),
-        .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.7.1")
+        .package(url: "https://github.com/airbnb/lottie-spm.git", from: .init(4, 5, 1)),
+        .package(url: "https://github.com/SnapKit/SnapKit.git", from: "5.7.0")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
@@ -22,7 +22,7 @@ let package = Package(
         .target(
             name: "ORBLoading",
             dependencies: [
-                .product(name: "Lottie", package: "lottie-ios"),
+                .product(name: "Lottie", package: "lottie-spm"),
                 .product(name: "SnapKit", package: "SnapKit")
             ]),
         .testTarget(
