@@ -17,6 +17,13 @@ public protocol ORBCenterLoadingStyle: UIView {
 public extension ORBCenterLoadingStyle {
     
     func startLoading(withoutShading: Bool) {
+        for subview in subviews {
+            if let loadingView = subview as? ORBLoadingView {
+                subview.backgroundColor = withoutShading ? .clear : .black.withAlphaComponent(0.55)
+                return
+            }
+        }
+        
         let loadingView = ORBLoadingView()
         if withoutShading { loadingView.backgroundColor = .black.withAlphaComponent(0.55) }
         
